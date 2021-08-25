@@ -1,0 +1,4 @@
+FOr : es un bucle que permite realizar una operacion sobre un objeto cuando veces se cumpla una condicion.
+&& : es la compuerta logica AND para JS. 
+|| : es la compuerta logica or para Js.
+! : negacion de un operador de comparacion .
