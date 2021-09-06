@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { straightThroughBufferTask } = require("simple-git/src/lib/tasks/task")
+
 function deObjetoAmatriz(objeto){
   // Escribe una función que convierta un objeto en una matriz, donde cada elemento representa 
   // un par clave-valor en forma de matriz.
@@ -10,6 +12,19 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  var bigarray = []
+  var littlearray = []
+  var other = []
+
+
+  for (const key in objeto) {
+    
+    littlearray.push(key)
+    littlearray.push(objeto[key])
+    other = littlearray.splice(0,2)
+    bigarray.push(other)    
+  } 
+  return bigarray
 }
 
 
@@ -17,7 +32,17 @@ function numberOfCharacters(string) {
   //La función recibe un string. Recorre el srting y devuelve el caracter con el número de veces que aparece 
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
-  //Escribe tu código aquí
+  //Escribe tu código aquí'
+  var array = {}
+  for (let index = 0; index < string.length; index++) {
+    if ( array[string[index]] === undefined ){
+      array[string[index]] = 1
+    }else {
+      array[string[index]]= array[string[index]] + 1
+    }
+    
+  }
+  return array
 }
 
 
@@ -26,6 +51,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var letterUpp = ""
+  var letterLow = ""
+  for (let index = 0; index < s.length; index++) {
+    if (s[index].match(/[A-Z]/) !== null ){
+      letterUpp = letterUpp + s[index]
+    }else{
+      letterLow = letterLow + s[index]
+    }
+  }
+  return letterUpp + letterLow
 }
 
 
@@ -34,7 +69,8 @@ function asAmirror(str) {
   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
-  //Escribe tu código aquí
+  //Escribe tu código aquí:
+  
 } 
 
 
