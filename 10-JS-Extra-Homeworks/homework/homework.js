@@ -33,16 +33,16 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí'
-  var array = {}
+  var object = {}
   for (let index = 0; index < string.length; index++) {
-    if ( array[string[index]] === undefined ){
-      array[string[index]] = 1
+    if ( object[string[index]] === undefined ){
+      object[string[index]] = 1
     }else {
-      array[string[index]]= array[string[index]] + 1
+      object[string[index]]= object[string[index]] + 1
     }
     
   }
-  return array
+  return object
 }
 
 
@@ -71,6 +71,10 @@ function asAmirror(str) {
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí:
   
+   
+  return str.split('').reverse().join('').split(' ').reverse().join(' ')
+
+  
 } 
 
 
@@ -79,6 +83,12 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  
+  if ( numero.toString().split('').reverse().join('')==numero ){
+    return "Es capicua"
+  }else{
+    return "No es capicua"
+  }
 }
 
 
@@ -86,6 +96,16 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  let array_cadena = cadena.split("")
+  let array_clean = ""
+  for (let index = 0; index < array_cadena.length; index++) {
+    if (array_cadena[index]!=="a" && array_cadena[index]!=="b" && array_cadena[index]!=="c"){
+      array_clean = array_clean + array_cadena[index]
+    }else{
+      continue
+    }
+  }
+  return array_clean
 }
 
 
@@ -93,7 +113,24 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  let trigger = 0
+  let array_sort = []
+  for (let index = 0; index < arr.length; index++) {
+    if(index === 0 ){
+      trigger = arr[index].length
+      array_sort.push(arr[index])
+    }else if(arr[index].length>trigger){
+      array_sort.push(arr[index])
+
+    }else if(arr[index].length === arr[index-1].length) {
+
+    }else{
+      array_sort.unshift(arr[index])
+    }
+  }
+  return array_sort
 }
+
 
 
 function buscoInterseccion(arreglo1, arreglo2){

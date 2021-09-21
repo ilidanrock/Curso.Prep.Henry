@@ -22,6 +22,7 @@ function crearUsuario() {
   return Usuario
 }
 
+
 function agregarMetodoPrototype(Constructor) {
   // Agrega un método al Constructor del `prototype`
   // El método debe llamarse "saludar" y debe devolver la string "Hello World!"
@@ -65,16 +66,16 @@ function agregarStringInvertida() {
       this.apellido = apellido;
       this.edad = edad;
       this.domicilio = domicilio;
-      Persona.detalle = function() {
-        for (const clave in Persona) {
-         return clave + ": " ,Persona[clave] 
-        }
-      }
+
     }
 
-     
-
-    
+    } 
+    Persona.detalle = function () {
+      for (var clave in Persona) {
+      let luis = clave
+      let vug = Persona[clave]
+      return ( luis + ": " + vug )
+     } 
 }
 
 function crearInstanciaPersona(nombre, apellido, edad, dir) {
